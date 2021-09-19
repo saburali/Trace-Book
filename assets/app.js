@@ -26,6 +26,7 @@ enterBtnAction();
 // Showing Book Result
 const dispalyBookresult = books => {
     const booksContainer = document.getElementById('bookResult');
+    booksContainer.innerHTML = '';
     // Error Handle
     if (books.length > 0) {
         books.forEach(book => {
