@@ -11,6 +11,7 @@
 body {
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 .themeLetter:first-letter {
@@ -133,4 +134,49 @@ input[type="color"]:focus,
     -webkit-line-clamp: 2;
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
+}
+
+.loadingPlaceholder .more-text {
+
+}
+
+/* Spinner */
+.loadingPlaceholder .card {
+    box-shadow: none !important;
+}
+
+.loadingPlaceholder p {
+    margin-bottom: 5px;
+}
+
+.load-wraper {
+    height: 100%;
+    width: 100%;
+    z-index: 44;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    display: inline-block;
+    background-color: rgba(211, 211, 211, 0.60);
+}
+
+.activity {
+    position: absolute;
+    left: -45%;
+    height: 100%;
+    width: 45%;
+    background-image: linear-gradient(to left, rgba(251, 251, 251, .05), rgba(251, 251, 251, .3), rgba(251, 251, 251, .6), rgba(251, 251, 251, .3), rgba(251, 251, 251, .05));
+    background-image: -moz-linear-gradient(to left, rgba(251, 251, 251, .05), rgba(251, 251, 251, .3), rgba(251, 251, 251, .6), rgba(251, 251, 251, .3), rgba(251, 251, 251, .05));
+    background-image: -webkit-linear-gradient(to left, rgba(251, 251, 251, .05), rgba(251, 251, 251, .3), rgba(251, 251, 251, .6), rgba(251, 251, 251, .3), rgba(251, 251, 251, .05));
+    animation: loading 1s infinite;
+    z-index: 45;
+}
+
+@keyframes loading {
+    0% {
+        left: -45%;
+    }
+    100% {
+        left: 100%;
+    }
 }
