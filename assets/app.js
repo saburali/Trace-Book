@@ -8,7 +8,8 @@ const bookSearch = () => {
 
     fetch(url)
         .then(res => res.json())
-        .then(data => dispalyBookresult(data.docs))
+        .then(data => dispalyBookresult(data.docs.slice(0, 5), data.numFound));
+
 };
 
 // Hit Enter Get Search Value
@@ -24,13 +25,25 @@ const enterBtnAction = () => {
 enterBtnAction();
 
 // Showing Book Result
-const dispalyBookresult = books => {
+const dispalyBookresult = (books, totalFound) => {
     const booksContainer = document.getElementById('bookResult');
     booksContainer.innerHTML = '';
+
+    const resultCount = document.getElementById('resultInfo');
+    resultCount.innerHTML = `
+        <div class="row">
+            <div class="col-md-6">
+                <p class="m-0"> Total Book Found: ${totalFound} </p>
+            </div>
+            <div class="col-md-6">
+                <p class="m-0 text-end"> Show Book: ${books.length} </p>
+            </div>
+        </div>
+    `;
+
     // Error Handle
     if (books.length > 0) {
         books.forEach(book => {
-            console.log(book);
             const div = document.createElement('div');
             div.classList.add('my-4');
             div.classList.add('col-md-3');
