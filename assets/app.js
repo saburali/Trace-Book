@@ -6,9 +6,15 @@ const bookSearch = () => {
 
     searchField.value = "";
 
-    // Loader Spinner
-    const smSpinner = document.getElementById('resultInfo');
-    smSpinner.innerHTML = `
+    if(searchText === '') {
+        document.getElementById("bookResult").innerHTML = `
+            <h1 class="text-danger text-center mt-5"> Type Anything & Search Again...!! </h1>
+        `;
+    }
+    else {
+        // Loader Spinner
+        const smSpinner = document.getElementById('resultInfo');
+        smSpinner.innerHTML = `
         <div class="row">
             <div class="col-md-6 ">
                 <p class="m-0"> <span class="load-wraper" style="width: 200px; height: 25px"> </span> </p>
@@ -20,8 +26,8 @@ const bookSearch = () => {
         </div>
     `;
 
-    const spinner = document.getElementById('bookResult');
-    spinner.innerHTML = `
+        const spinner = document.getElementById('bookResult');
+        spinner.innerHTML = `
         <div class="col-12 mt-4">
             <div class="text-center">
                 <h2 class="load-wraper" style="width: 60%; height: 50px"></h2>
@@ -74,10 +80,10 @@ const bookSearch = () => {
             </div>
         </div>
     `;
-
-    fetch(url)
-        .then(res => res.json())
-        .then(data => dispalyBookresult(data.docs.slice(0, 100), data.numFound));
+        fetch(url)
+            .then(res => res.json())
+            .then(data => dispalyBookresult(data.docs.slice(0, 50), data.numFound));
+    }
 };
 
 // Hit Enter Get Search Value
