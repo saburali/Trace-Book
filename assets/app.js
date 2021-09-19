@@ -2,10 +2,14 @@
 const bookSearch = () => {
     const searchField = document.getElementById("searchBook");
     const searchText = searchField.value;
-    const url = `https://www.openlibrary.org/search.json?q=${searchText}`;
+    const url = `https://openlibrary.org/search.json?q=${searchText}`;
 
     searchField.value = "";
-}
+
+    fetch(url)
+        .then(res => res.json())
+        .then(data => console.log(data.docs))
+};
 
 // Hit Enter Get Search Value
 const enterBtnAction = () => {
@@ -18,3 +22,4 @@ const enterBtnAction = () => {
     });
 }
 enterBtnAction();
+
