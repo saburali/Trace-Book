@@ -77,7 +77,7 @@ const bookSearch = () => {
 
     fetch(url)
         .then(res => res.json())
-        .then(data => dispalyBookresult(data.docs.slice(0, 5), data.numFound));
+        .then(data => dispalyBookresult(data.docs.slice(0, 100), data.numFound));
 };
 
 // Hit Enter Get Search Value
@@ -131,7 +131,7 @@ const dispalyBookresult = (books, totalFound) => {
         })
     } else {
         document.getElementById("bookResult").innerHTML = `
-            <h1 class="text-danger text-center mt-5"> Please Type Anything and Search Again </h1>
+            <h1 class="text-danger text-center mt-5"> No Result, Search Again...!! </h1>
         `;
     }
 }
