@@ -27,12 +27,13 @@ enterBtnAction();
 const dispalyBookresult = books => {
     const booksContainer = document.getElementById('bookResult');
     // Error Handle
-    books.forEach(book => {
-        console.log(book);
-        const div = document.createElement('div');
-        div.classList.add('my-4');
-        div.classList.add('col-md-3');
-        div.innerHTML = `
+    if (books.length > 0) {
+        books.forEach(book => {
+            console.log(book);
+            const div = document.createElement('div');
+            div.classList.add('my-4');
+            div.classList.add('col-md-3');
+            div.innerHTML = `
                 <div class="card book">
                     <img src="${book.cover_i ? `https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg` : `assets/noImageAvailable.jpg`}"
                          class="card-img-top" alt="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg">
@@ -44,6 +45,12 @@ const dispalyBookresult = books => {
                     </div>
                 </div>
             `;
-        booksContainer.appendChild(div);
-    })
+            booksContainer.appendChild(div);
+        })
+    }
+    else {
+        document.getElementById("bookResult").innerHTML = `
+            <h1 class="text-danger text-center mt-5"> Please Type Anything and Search Again </h1>
+        `;
+    }
 }
