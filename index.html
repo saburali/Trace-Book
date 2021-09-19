@@ -8,23 +8,47 @@
 
     <title>Book Archive - Search</title>
 
-<!-- Fav Icon -->
+    <!-- Fav Icon -->
     <link rel="shortcut icon" href="assets/favImg.svg" type="image/x-icon">
 
-<!-- Bootstrap -->
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-<!-- Custom Style -->
+    <!-- Custom Style -->
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
-<h1> Book Archive </h1>
+<h1 class="text-center mt-4 mb-5 themeLetter" style="letter-spacing: 5px"> Book Archive </h1>
+
+<!-- Search Book -->
+<div class="container">
+    <div class="searchBook">
+        <div class="row">
+            <div class="col-md-8 col-12 mx-auto">
+                <h2 class="themeLetter"> Search Your Favourite Book </h2>
+                <div class="input-group mb-3">
+                    <input id="searchBook" type="text" class="form-control"
+                           placeholder="Type Anything Book Name & Hit Enter"
+                           aria-label="Search Your Favourite Book" aria-describedby="searchBtn">
+                    <button class="btn" type="button" id="searchBtn" onclick="bookSearch()">
+                        Search
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="bookResult">
+        <div id="h2"></div>
+    </div>
+</div>
 
 <!-- // Script // -->
 <!-- Bootstrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+        crossorigin="anonymous"></script>
 <!-- Custom -->
 <script src="assets/app.js"></script>
 </body>
